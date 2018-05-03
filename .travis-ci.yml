@@ -1,0 +1,17 @@
+language: elixir
+addons:
+  apt:
+    packages:
+    - build-essential
+    - erlang-dev
+
+services:
+- postgresql
+
+elixir:
+- 1.6.1
+otp_release:
+- 20.2
+script:
+- mix deps.get
+- mix test
