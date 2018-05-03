@@ -6,7 +6,7 @@ __Disclamer__
 
 Blackgate is in active development, do not try to use it in production.
 
-Blackgate is ready to use OAuth2 library built on top of guardian. It focus on simplicity and extensibility.
+Blackgate is ready to use OAuth2 library built on top of [Guardian](https://github.com/ueberauth/guardian). It focus on simplicity and extensibility.
 
 __Todo__
 
