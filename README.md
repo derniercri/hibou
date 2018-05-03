@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/derniercri/hibou.svg?branch=master)](https://travis-ci.org/derniercri/hibou)
 
 <pre style="background-color:transparent">
- __________
+  __________
  / ___  ___ \
 / / @ \/ @ \ \
 \ \___/\___/ /\
