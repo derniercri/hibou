@@ -8,6 +8,12 @@
   <% end %>
 
   <div class="form-group">
+    <label>Username</label>
+    <%= text_input f, :username, class: "form-control" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
     <label>Email</label>
     <%= email_input f, :email, class: "form-control" %>
     <%= error_tag f, :email %>
@@ -17,6 +23,12 @@
     <label>Password</label>
     <%= password_input f, :password, class: "form-control" %>
     <%= error_tag f, :password %>
+  </div>
+
+  <div class="form-group">
+    <label>Password confirm</label>
+    <%= password_input f, :password_confirm, class: "form-control" %>
+    <%= error_tag f, :password_confirm %>
   </div>
 
   <div class="form-group">
