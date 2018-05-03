@@ -3,13 +3,13 @@ defmodule Blackgate.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :username, :string
-      add :email, :string
-      add :password, :string
-      add :enabled, :boolean, default: false, null: false
+      add(:username, :string)
+      add(:email, :string)
+      add(:password_hash, :string)
+      add(:enabled, :boolean, default: false, null: false)
+      add(:confirmation_code, :string, default: false)
 
       timestamps()
     end
-
   end
 end

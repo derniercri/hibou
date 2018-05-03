@@ -16,6 +16,6 @@ alias Blackgate.Repo
 Repo.insert!(%User{
   username: "johndoe",
   email: "johnadoe@blackgate.io",
-  password: Bcrypt.hashpwsalt("password"),
+  password_hash: Bcrypt.hashpwsalt("password"),
   enabled: true
 })
