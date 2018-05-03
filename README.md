@@ -1,6 +1,21 @@
-# Blackgate
+# Hibou
 
 [![Build Status](https://travis-ci.org/derniercri/hibou.svg?branch=master)](https://travis-ci.org/derniercri/hibou)
+
+<pre style="background-color:transparent">
+ __________
+ / ___  ___ \
+/ / @ \/ @ \ \
+\ \___/\___/ /\
+ \____\/____/||
+ /     /\\\\\//
+ |     |\\\\\\
+  \      \\\\\\
+   \______/\\\\
+    _||_||_
+     -- --
+</pre>
+
 
 __Disclamer__
 
