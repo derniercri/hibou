@@ -36,14 +36,16 @@ http://localhost:4000/authorize?scope=read,write&client_id=1&redirect_uri=http:/
 ```
 
 __config.exs__
-```
+
+```elixir
 config :hibou, Hibou.AuthAccessPipeline,
   module: Hibou.Guardian,
   error_handler: Hibou.AuthErrorHandler
 ```
 
-__route.ex__
-```
+__router.ex__
+
+```elixir
 defmodule HibouWeb.Router do
   use HibouWeb, :router
 
