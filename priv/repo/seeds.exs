@@ -9,7 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Hibou.Model.User
+alias Hibou.Model.{User, Client}
 alias Comeonin.Bcrypt
 alias Hibou.Repo
 
@@ -18,4 +18,10 @@ Repo.insert!(%User{
   email: "jdoe@hibou.io",
   password_hash: Bcrypt.hashpwsalt("password"),
   enabled: true
+})
+
+Repo.insert!(%Client{
+  name: "dev_client",
+  secret: "secret",
+  redirect_uri: "http://localhost"
 })
