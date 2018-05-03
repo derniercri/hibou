@@ -1,5 +1,7 @@
 # Blackgate
 
+[![Build Status](https://travis-ci.org/derniercri/blackgate.svg?branch=master)](https://travis-ci.org/derniercri/blackgate)
+
 __Disclamer__
 
 Blackgate is in active development, do not try to use it in production.
