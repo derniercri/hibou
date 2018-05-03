@@ -9,3 +9,13 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias Blackgate.Model.User
+alias Comeonin.Bcrypt
+alias Blackgate.Repo
+
+Repo.insert!(%User{
+  username: "johndoe",
+  email: "johnadoe@blackgate.io",
+  password: Bcrypt.hashpwsalt("password"),
+  enabled: true
+})

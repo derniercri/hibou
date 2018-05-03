@@ -43,7 +43,8 @@ defmodule Blackgate.Mixfile do
       {:cowboy, "~> 1.0"},
       {:guardian, "~> 1.0"},
       {:bamboo, "~> 0.8.0"},
-      {:bcrypt, "~> 1.0"}
+      {:bcrypt_elixir, "~> 1.0"},
+      {:comeonin, "~> 4.0"}
     ]
   end
 

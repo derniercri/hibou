@@ -11,3 +11,14 @@ __Todo__
 - Default authorization page
 - Send activation email
 - JWT token support
+
+## Development
+
+__Getting started__
+
+```
+docker-compose up -d
+mix deps.get
+mix ecto.reset
+mix phx.server
+```
