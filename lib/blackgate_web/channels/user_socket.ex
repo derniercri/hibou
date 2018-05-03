@@ -1,11 +1,11 @@
-defmodule BlackgateWeb.UserSocket do
+defmodule HibouWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", BlackgateWeb.RoomChannel
+  # channel "room:*", HibouWeb.RoomChannel
 
   ## Transports
-  transport :websocket, Phoenix.Transports.WebSocket
+  transport(:websocket, Phoenix.Transports.WebSocket)
   # transport :longpoll, Phoenix.Transports.LongPoll
 
   # Socket params are passed from the client and can
@@ -30,7 +30,7 @@ defmodule BlackgateWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     BlackgateWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     HibouWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

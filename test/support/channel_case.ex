@@ -1,4 +1,4 @@
-defmodule BlackgateWeb.ChannelCase do
+defmodule HibouWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,17 +21,17 @@ defmodule BlackgateWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint BlackgateWeb.Endpoint
+      @endpoint HibouWeb.Endpoint
     end
   end
-
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Blackgate.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Hibou.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Blackgate.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Hibou.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end

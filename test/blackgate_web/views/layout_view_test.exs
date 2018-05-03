@@ -1,3 +1,3 @@
-defmodule BlackgateWeb.LayoutViewTest do
-  use BlackgateWeb.ConnCase, async: true
+defmodule HibouWeb.LayoutViewTest do
+  use HibouWeb.ConnCase, async: true
 end

@@ -1,5 +1,5 @@
-defmodule Blackgate.Repo do
-  use Ecto.Repo, otp_app: :blackgate
+defmodule Hibou.Repo do
+  use Ecto.Repo, otp_app: :hibou
 
   @doc """
   Dynamically loads the repository url from the

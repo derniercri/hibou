@@ -1,4 +1,4 @@
-defmodule BlackgateWeb.ErrorHelpers do
+defmodule HibouWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -9,8 +9,8 @@ defmodule BlackgateWeb.ErrorHelpers do
   Generates tag for inlined form input errors.
   """
   def error_tag(form, field) do
-    Enum.map(Keyword.get_values(form.errors, field), fn (error) ->
-      content_tag :span, translate_error(error), class: "help-block"
+    Enum.map(Keyword.get_values(form.errors, field), fn error ->
+      content_tag(:span, translate_error(error), class: "help-block")
     end)
   end
 
@@ -36,9 +36,9 @@ defmodule BlackgateWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(BlackgateWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(HibouWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(BlackgateWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(HibouWeb.Gettext, "errors", msg, opts)
     end
   end
 end

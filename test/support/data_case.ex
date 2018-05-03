@@ -1,4 +1,4 @@
-defmodule Blackgate.DataCase do
+defmodule Hibou.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule Blackgate.DataCase do
 
   using do
     quote do
-      alias Blackgate.Repo
+      alias Hibou.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Blackgate.DataCase
+      import Hibou.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Blackgate.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Hibou.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Blackgate.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Hibou.Repo, {:shared, self()})
     end
 
     :ok

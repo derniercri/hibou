@@ -1,5 +1,5 @@
-defmodule BlackgateWeb.ErrorView do
-  use BlackgateWeb, :view
+defmodule HibouWeb.ErrorView do
+  use HibouWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

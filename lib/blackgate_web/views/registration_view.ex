@@ -1,3 +1,3 @@
-defmodule BlackgateWeb.RegistrationView do
-  use BlackgateWeb, :view
+defmodule HibouWeb.RegistrationView do
+  use HibouWeb, :view
 end

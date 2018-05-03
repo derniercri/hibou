@@ -1,5 +1,5 @@
-defmodule BlackgateWeb.Router do
-  use BlackgateWeb, :router
+defmodule HibouWeb.Router do
+  use HibouWeb, :router
 
   pipeline :browser do
     plug(:accepts, ["html"])
@@ -13,7 +13,7 @@ defmodule BlackgateWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/", BlackgateWeb do
+  scope "/", HibouWeb do
     # Use the default browser stack
     pipe_through(:browser)
 
@@ -24,7 +24,7 @@ defmodule BlackgateWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BlackgateWeb do
+  # scope "/api", HibouWeb do
   #   pipe_through :api
   # end
 end

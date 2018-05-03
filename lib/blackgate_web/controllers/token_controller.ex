@@ -1,7 +1,7 @@
-defmodule BlackgateWeb.TokenController do
-  use BlackgateWeb, :controller
-  alias Blackgate.Model.User
-  alias Blackgate.Repo
+defmodule HibouWeb.TokenController do
+  use HibouWeb, :controller
+  alias Hibou.Model.User
+  alias Hibou.Repo
 
   def create(conn, params) do
     # TODO: use logic here

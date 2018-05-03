@@ -1,12 +1,12 @@
-defmodule BlackgateWeb do
+defmodule HibouWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use BlackgateWeb, :controller
-      use BlackgateWeb, :view
+      use HibouWeb, :controller
+      use HibouWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,18 @@ defmodule BlackgateWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: BlackgateWeb
+      use Phoenix.Controller, namespace: HibouWeb
       import Plug.Conn
-      import BlackgateWeb.Router.Helpers
-      import BlackgateWeb.Gettext
+      import HibouWeb.Router.Helpers
+      import HibouWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/blackgate_web/templates",
-                        namespace: BlackgateWeb
+      use Phoenix.View,
+        root: "lib/hibou_web/templates",
+        namespace: HibouWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +38,9 @@ defmodule BlackgateWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import BlackgateWeb.Router.Helpers
-      import BlackgateWeb.ErrorHelpers
-      import BlackgateWeb.Gettext
+      import HibouWeb.Router.Helpers
+      import HibouWeb.ErrorHelpers
+      import HibouWeb.Gettext
     end
   end
 
@@ -54,7 +55,7 @@ defmodule BlackgateWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import BlackgateWeb.Gettext
+      import HibouWeb.Gettext
     end
   end
 

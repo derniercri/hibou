@@ -1,4 +1,4 @@
-defmodule BlackgateWeb.ConnCase do
+defmodule HibouWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,20 +19,20 @@ defmodule BlackgateWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      import BlackgateWeb.Router.Helpers
+      import HibouWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint BlackgateWeb.Endpoint
+      @endpoint HibouWeb.Endpoint
     end
   end
-
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Blackgate.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Hibou.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Blackgate.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Hibou.Repo, {:shared, self()})
     end
+
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end

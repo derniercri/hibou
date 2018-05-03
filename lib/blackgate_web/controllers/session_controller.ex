@@ -1,7 +1,7 @@
-defmodule BlackgateWeb.SessionController do
-  use BlackgateWeb, :controller
-  alias Blackgate.Model.User
-  alias Blackgate.Storage
+defmodule HibouWeb.SessionController do
+  use HibouWeb, :controller
+  alias Hibou.Model.User
+  alias Hibou.Storage
 
   def new(conn, _params) do
     render(conn, "new.html")
@@ -19,12 +19,12 @@ defmodule BlackgateWeb.SessionController do
       user ->
         case user.enabled do
           true ->
-            {:ok, token, _} = Blackgate.Guardian.encode_and_sign(user)
+            {:ok, token, _} = Hibou.Guardian.encode_and_sign(user)
 
             conn
             |> Plug.Conn.put_resp_cookie("token", token, http_only: false)
             |> Plug.Conn.put_resp_cookie("user_id", "#{user.id}")
-            |> Blackgate.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
+            |> Hibou.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
             |> redirect(to: "/")
 
           false ->
@@ -37,7 +37,7 @@ defmodule BlackgateWeb.SessionController do
 
   def sign_out(conn, _params) do
     conn
-    |> Blackgate.Guardian.Plug.sign_out()
+    |> Hibou.Guardian.Plug.sign_out()
     |> redirect(to: "/login")
   end
 

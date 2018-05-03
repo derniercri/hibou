@@ -1,6 +1,6 @@
 # Blackgate
 
-[![Build Status](https://travis-ci.org/derniercri/blackgate.svg?branch=master)](https://travis-ci.org/derniercri/blackgate)
+[![Build Status](https://travis-ci.org/derniercri/hibou.svg?branch=master)](https://travis-ci.org/derniercri/hibou)
 
 __Disclamer__
 

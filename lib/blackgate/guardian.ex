@@ -1,6 +1,6 @@
-defmodule Blackgate.Guardian do
-  use Guardian, otp_app: :blackgate
-  alias Blackgate.Storage
+defmodule Hibou.Guardian do
+  use Guardian, otp_app: :hibou
+  alias Hibou.Storage
 
   def subject_for_token(resource, _claims) do
     # You can use any value for the subject of your token but

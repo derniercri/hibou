@@ -1,3 +1,3 @@
-defmodule BlackgateWeb.LayoutView do
-  use BlackgateWeb, :view
+defmodule HibouWeb.LayoutView do
+  use HibouWeb, :view
 end

@@ -1,7 +1,7 @@
-defmodule BlackgateWeb.RegistrationController do
-  use BlackgateWeb, :controller
-  alias Blackgate.Model.User
-  alias Blackgate.Repo
+defmodule HibouWeb.RegistrationController do
+  use HibouWeb, :controller
+  alias Hibou.Model.User
+  alias Hibou.Repo
 
   def new(conn, _params) do
     render(conn, "new.html", changeset: User.changeset(%User{}, %{}))

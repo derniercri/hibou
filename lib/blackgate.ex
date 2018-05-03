@@ -1,6 +1,6 @@
-defmodule Blackgate do
+defmodule Hibou do
   @moduledoc """
-  Blackgate keeps the contexts that define your domain
+  Hibou keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

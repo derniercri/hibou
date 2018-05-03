@@ -1,4 +1,4 @@
-defmodule Blackgate.Model.User do
+defmodule Hibou.Model.User do
   use Ecto.Schema
   import Ecto.Changeset
 

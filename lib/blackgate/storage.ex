@@ -1,6 +1,6 @@
-defmodule Blackgate.Storage do
-  alias Blackgate.Model.User
-  alias Blackgate.Repo
+defmodule Hibou.Storage do
+  alias Hibou.Model.User
+  alias Hibou.Repo
   import Ecto.Query, warn: false
 
   def get_user_by_id!(id), do: Repo.get!(User, id)

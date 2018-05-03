@@ -1,3 +1,3 @@
-defmodule BlackgateWeb.SessionView do
-  use BlackgateWeb, :view
+defmodule HibouWeb.SessionView do
+  use HibouWeb, :view
 end

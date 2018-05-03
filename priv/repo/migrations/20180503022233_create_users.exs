@@ -1,4 +1,4 @@
-defmodule Blackgate.Repo.Migrations.CreateUsers do
+defmodule Hibou.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change do
