@@ -17,14 +17,16 @@ defmodule HibouWeb.Router do
     # Use the default browser stack
     pipe_through(:browser)
 
+    resources("/authorize", AuthorizationController, only: [:new, :create])
     resources("/registrations", RegistrationController, only: [:new, :create])
-    get("/login", SessionController, :new)
-    post("/login", SessionController, :create)
+    resources("/login", SessionController, only: [:new, :create])
     delete("/logout", SessionController, :delete)
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HibouWeb do
-  #   pipe_through :api
-  # end
+  scope "/v1", HibouWeb do
+    pipe_through(:api)
+
+    post("/auth/tokens", AuthorizationController, :create)
+  end
 end

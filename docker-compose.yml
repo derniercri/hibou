@@ -8,4 +8,4 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "35432:5432"

@@ -54,4 +54,5 @@ config :hibou, Hibou.Repo,
   password: "postgres",
   database: "postgres",
   hostname: "localhost",
+  port: 35432,
   pool_size: 10
