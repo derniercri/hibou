@@ -47,6 +47,10 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
+config :hibou, Hibou.Guardian,
+  issuer: "hibou",
+  secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"
+
 # Configure your database
 config :hibou, Hibou.Repo,
   adapter: Ecto.Adapters.Postgres,

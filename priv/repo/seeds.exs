@@ -15,7 +15,7 @@ alias Hibou.Repo
 
 Repo.insert!(%User{
   username: "johndoe",
-  email: "johnadoe@hibou.io",
+  email: "jdoe@hibou.io",
   password_hash: Bcrypt.hashpwsalt("password"),
   enabled: true
 })

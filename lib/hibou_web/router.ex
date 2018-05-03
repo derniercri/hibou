@@ -17,9 +17,11 @@ defmodule HibouWeb.Router do
     # Use the default browser stack
     pipe_through(:browser)
 
-    resources("/authorize", AuthorizationController, only: [:new, :create])
+    get("/authorize", AuthorizationController, :new)
+    post("/authorize", AuthorizationController, :create)
     resources("/registrations", RegistrationController, only: [:new, :create])
-    resources("/login", SessionController, only: [:new, :create])
+    get("/login", SessionController, :new)
+    post("/login", SessionController, :create)
     delete("/logout", SessionController, :delete)
   end
 

@@ -14,7 +14,7 @@ defmodule HibouWeb.SessionController do
       nil ->
         conn
         |> put_flash(:error, "Invalid credentials")
-        |> render("index.html", changeset: changeset)
+        |> render("new.html", changeset: changeset)
 
       user ->
         case user.enabled do
@@ -30,7 +30,7 @@ defmodule HibouWeb.SessionController do
           false ->
             conn
             |> put_flash(:error, "User is not activated")
-            |> render("index.html", changeset: changeset)
+            |> render("new.html", changeset: changeset)
         end
     end
   end
