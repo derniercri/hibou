@@ -30,6 +30,51 @@ __Todo__
 - Send activation email
 - JWT token support
 
+
+```
+http://localhost:4000/authorize?scope=read,write&client_id=1&redirect_uri=http://localhost:3000 &response_type=code
+```
+
+__config.exs__
+```
+config :hibou, Hibou.AuthAccessPipeline,
+  module: Hibou.Guardian,
+  error_handler: Hibou.AuthErrorHandler
+```
+
+__route.ex__
+```
+defmodule HibouWeb.Router do
+  use HibouWeb, :router
+
+  pipeline :browser do
+    ...
+    plug(Hibou.AuthAccessPipeline)
+  end
+
+  ...
+
+  scope "/", HibouWeb do
+    # Use the default browser stack
+    pipe_through(:browser)
+
+    get("/authorize", AuthorizationController, :new)
+    post("/authorize", AuthorizationController, :create)
+    resources("/registrations", RegistrationController, only: [:new, :create])
+    get("/login", SessionController, :new)
+    post("/login", SessionController, :create)
+    delete("/logout", SessionController, :delete)
+  end
+
+  # Other scopes may use custom stacks.
+  scope "/v1", HibouWeb do
+    pipe_through(:api)
+
+    post("/auth/tokens", AuthorizationController, :create)
+  end
+end
+```
+
 ## Development
 
 __Getting started__

@@ -3,8 +3,16 @@ defmodule HibouWeb.AuthorizationController do
   alias Hibou.Model.User
   alias Hibou.Repo
 
-  def new(conn, _params) do
-    render(conn, "new.html", changeset: User.changeset(%User{}, %{}))
+  def new(conn, %{"client_id" => client_id, "response_type" => "code"} = params) do
+    case Hibou.Guardian.Plug.current_resource(conn) do
+      nil ->
+        conn
+        |> Plug.Conn.put_session(:redirect_url, "#{conn.request_path}?#{conn.query_string}")
+        |> redirect(to: "/login")
+
+      user ->
+        render(conn, "new.html", changeset: User.changeset(%User{}, %{}))
+    end
   end
 
   def create(conn, %{"user" => user_params}) do

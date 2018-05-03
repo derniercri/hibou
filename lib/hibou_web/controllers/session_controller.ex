@@ -19,13 +19,12 @@ defmodule HibouWeb.SessionController do
       user ->
         case user.enabled do
           true ->
-            {:ok, token, _} = Hibou.Guardian.encode_and_sign(user)
+            conn = Hibou.Guardian.Plug.sign_in(conn, user)
+            path = get_session(conn, :redirect_url) || "/"
 
             conn
-            |> Plug.Conn.put_resp_cookie("token", token, http_only: false)
-            |> Plug.Conn.put_resp_cookie("user_id", "#{user.id}")
             |> Hibou.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
-            |> redirect(to: "/")
+            |> redirect(to: path)
 
           false ->
             conn
