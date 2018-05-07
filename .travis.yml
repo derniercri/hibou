@@ -10,14 +10,14 @@ services:
 
 env:
   global:
-  - PGPORT=35432
+  - PGPORT=5432
 
 elixir:
 - 1.6.1
 otp_release:
 - 20.2
 before_script:
-  - psql -c "CREATE USER postgres WITH PASSWORD 'postgres';" -U postgres -p $PGPORT
+  - psql -c "CREATE USER postgres WITH PASSWORD 'postgres';" -U postgres
 script:
 - mix deps.get
 - mix ecto.migrate
