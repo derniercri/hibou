@@ -17,5 +17,5 @@ config :hibou, Hibou.Repo,
   database: "postgres",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
-  port: System.get_env("PGPORT") || 3543,
+  port: System.get_env("PGPORT") || 35432,
   pool_size: 10
