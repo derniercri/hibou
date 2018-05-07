@@ -13,7 +13,7 @@ config :logger, level: :warn
 config :hibou, Hibou.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: System.get_env("PGPASSWORD") || "postgres",
   database: "postgres",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
