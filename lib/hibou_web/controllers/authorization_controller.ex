@@ -3,6 +3,7 @@ defmodule HibouWeb.AuthorizationController do
   alias Hibou.Model.User
   alias Hibou.Repo
   alias Hibou.Model.Authorization
+  alias Hibou.Storage
 
   def new(
         conn,
@@ -16,11 +17,17 @@ defmodule HibouWeb.AuthorizationController do
         |> redirect(to: "/login")
 
       _user ->
-        conn
-        |> Plug.Conn.put_session(:client_id, client_id)
-        |> Plug.Conn.put_session(:redirect_uri, redirect_uri)
+        case Storage.get_client_by_id(client_id) do
+          nil ->
+            ""
 
-        render(conn, "new.html", changeset: User.changeset(%User{}, %{}))
+          client ->
+            conn
+            |> Plug.Conn.put_session(:client_id, client_id)
+            |> Plug.Conn.put_session(:redirect_uri, redirect_uri)
+
+            render(conn, "new.html", client: client, changeset: User.changeset(%User{}, %{}))
+        end
     end
   end
 
