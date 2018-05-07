@@ -14,6 +14,8 @@ config :hibou, Hibou.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "hibou_test",
+  database: "postgres",
   hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+  pool: Ecto.Adapters.SQL.Sandbox,
+  port: 35432,
+  pool_size: 10
