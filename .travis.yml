@@ -16,6 +16,8 @@ elixir:
 - 1.6.1
 otp_release:
 - 20.2
+before_script:
+  - psql -c "CREATE USER postgres WITH PASSWORD 'postgres';" -U postgres -p $PGPORT
 script:
 - mix deps.get
 - mix ecto.migrate
