@@ -17,5 +17,6 @@ otp_release:
 - 20.2
 script:
 - mix deps.get
+- mix ecto.create
 - mix ecto.migrate
 - mix test
