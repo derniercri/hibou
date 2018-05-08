@@ -1,7 +1,10 @@
 defmodule HibouWeb.TokenController do
   use HibouWeb, :controller
 
-  def create(conn, params) do
-    # TODO: use logic here
+  def create(_conn, %{"grant_type" => grant_type} = _params) do
+    case grant_type do
+      "authorization_code" ->
+        nil
+    end
   end
 end

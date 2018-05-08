@@ -87,3 +87,6 @@ mix deps.get
 mix ecto.reset
 mix phx.server
 ```
+
+
+docker-compose down -v && docker-compose up -d && sleep 3 && mix ecto.migrate && mix run priv/repo/seeds.exs

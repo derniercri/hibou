@@ -4,7 +4,7 @@ defmodule Hibou.Model.Authorization do
   alias Hibou.Model.User
   alias Hibou.Model.Client
 
-  schema "clients" do
+  schema "authorizations" do
     field(:code, :string)
     belongs_to(:user, User)
     belongs_to(:client, Client)
