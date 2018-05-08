@@ -19,5 +19,6 @@ defmodule HibouWeb.AuthorizationControllerTest do
       |> get("/authorize?response_type=code&redirect_uri=http://localhost&client_id=1")
 
     assert conn.status != 200
+    assert conn.resp_body == "dev_client wants to access your data."
   end
 end
