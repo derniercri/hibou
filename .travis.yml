@@ -8,9 +8,6 @@ addons:
 services:
 - postgresql
 
-env:
-  - PGPORT=5432 PGPASSWORD=""
-
 elixir:
 - 1.6.1
 otp_release:

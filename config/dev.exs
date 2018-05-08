@@ -55,8 +55,6 @@ config :hibou, Hibou.Guardian,
 config :hibou, Hibou.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
   database: "postgres",
   hostname: "localhost",
-  port: 35432,
   pool_size: 10
