@@ -19,3 +19,7 @@ config :hibou, Hibou.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   port: System.get_env("PGPORT") || 35432,
   pool_size: 10
+
+config :hibou, Hibou.Guardian,
+  issuer: "hibou",
+  secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"

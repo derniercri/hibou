@@ -13,12 +13,13 @@ defmodule HibouWeb.AuthorizationControllerTest do
   end
 
   test "authorize when user is connected", %{conn: conn} do
+    conn = Hibou.Guardian.Plug.sign_in(conn, %User{id: 1})
+
     conn =
       conn
-      |> assign(:current_user, %User{})
       |> get("/authorize?response_type=code&redirect_uri=http://localhost&client_id=1")
 
-    assert conn.status != 200
-    assert conn.resp_body == "dev_client wants to access your data."
+    assert conn.status == 200
+    assert String.contains?(conn.resp_body, "dev_client wants to access your data.")
   end
 end
