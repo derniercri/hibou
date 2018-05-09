@@ -13,5 +13,6 @@ defmodule Hibou.Storage do
   def get_client_by_id(id), do: Repo.one(from(c in Client, where: c.id == ^id))
 
   def get_authorization_by_code(code),
-    do: Repo.one(from(a in Authorization, where: a.code == ^code)) |> Ecto.preload([:user])
+    do:
+      Repo.one(from(a in Authorization, where: a.code == ^code)) |> Repo.preload([:user, :client])
 end
