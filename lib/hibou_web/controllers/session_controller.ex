@@ -46,7 +46,7 @@ defmodule HibouWeb.SessionController do
         nil
 
       user ->
-        case Comeonin.Bcrypt.checkpw(password, user.password_hash) do
+        case User.check_password(password, user.password_hash) do
           true -> user
           false -> nil
         end

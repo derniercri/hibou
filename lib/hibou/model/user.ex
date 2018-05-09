@@ -23,4 +23,8 @@ defmodule Hibou.Model.User do
   def hashed_password(password) do
     Comeonin.Bcrypt.hashpwsalt(password)
   end
+
+  def check_password(password, password_hash) do
+    Comeonin.Bcrypt.checkpw(password, password_hash)
+  end
 end
