@@ -9,7 +9,7 @@ defmodule HibouWeb.TokenController do
     |> Plug.Conn.send_resp(code, Poison.encode!(data))
   end
 
-  def create(conn, %{"grant_type" => grant_type} = params) do
+  def create(conn, params) do
     case OAuth2.authorize(params) do
       {:error, data} -> conn |> render_json(400, data)
       {:ok, data} -> conn |> render_json(200, data)
