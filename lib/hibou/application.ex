@@ -6,15 +6,21 @@ defmodule Hibou.Application do
   def start(_type, _args) do
     import Supervisor.Spec
 
-    # Define workers and child supervisors to be supervised
-    children = [
-      # Start the Ecto repository
-      supervisor(Hibou.Repo, []),
-      # Start the endpoint when the application starts
-      supervisor(HibouWeb.Endpoint, [])
-      # Start your own worker by calling: Hibou.Worker.start_link(arg1, arg2, arg3)
-      # worker(Hibou.Worker, [arg1, arg2, arg3]),
-    ]
+    children =
+      case Application.get_env(:hibou, HibouWeb.Endpoint) do
+        nil ->
+          []
+
+        _ ->
+          [
+            # Start the Ecto repository
+            supervisor(Hibou.Repo, []),
+            # Start the endpoint when the application starts
+            supervisor(HibouWeb.Endpoint, [])
+            # Start your own worker by calling: Hibou.Worker.start_link(arg1, arg2, arg3)
+            # worker(Hibou.Worker, [arg1, arg2, arg3]),
+          ]
+      end
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
