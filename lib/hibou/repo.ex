@@ -1,5 +1,5 @@
 defmodule Hibou.Repo do
-  use Ecto.Repo, otp_app: :hibou
+  # use Ecto.Repo, otp_app: :hibou
 
   @doc """
   Dynamically loads the repository url from the
