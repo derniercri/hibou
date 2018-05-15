@@ -32,7 +32,7 @@ __Todo__
 
 
 ```
-http://localhost:4000/authorize?scope=read,write&client_id=1&redirect_uri=http://localhost:3000 &response_type=code
+http://localhost:4000/authorize?scope=read,write&client_id=1&redirect_uri=http://localhost:3000&response_type=code
 ```
 
 __config.exs__
@@ -87,6 +87,3 @@ mix deps.get
 mix ecto.reset
 mix phx.server
 ```
-
-
-docker-compose down -v && docker-compose up -d && sleep 3 && mix ecto.migrate && mix run priv/repo/seeds.exs
