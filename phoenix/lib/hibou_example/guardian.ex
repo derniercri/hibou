@@ -1,4 +1,4 @@
-defmodule Hibou.Guardian do
+defmodule HibouExample.Guardian do
   use Guardian, otp_app: :hibou
   alias Hibou.Storage
 

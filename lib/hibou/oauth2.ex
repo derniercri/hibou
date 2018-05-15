@@ -2,6 +2,8 @@ defmodule Hibou.OAuth2 do
   alias Hibou.Model.User
   alias Hibou.Storage
 
+  import Hibou.Config
+
   @invalid_credentials %{"message" => "invalid credentials"}
   @invalid_request %{"message" => "invalid credentials"}
 
@@ -13,8 +15,8 @@ defmodule Hibou.OAuth2 do
             {:error, @invalid_request}
 
           auth ->
-            {:ok, access_token, _claims} = Hibou.Guardian.encode_and_sign(auth.user, %{})
-            {:ok, refresh_token, _claims} = Hibou.Guardian.encode_and_sign(auth.user, %{})
+            {:ok, access_token, _claims} = guardian().encode_and_sign(auth.user, %{})
+            {:ok, refresh_token, _claims} = guardian().encode_and_sign(auth.user, %{})
 
             {:ok,
              %{
@@ -32,8 +34,8 @@ defmodule Hibou.OAuth2 do
           user ->
             User.check_password(params["password"], user.password_hash)
 
-            {:ok, access_token, _claims} = Hibou.Guardian.encode_and_sign(user, %{})
-            {:ok, refresh_token, _claims} = Hibou.Guardian.encode_and_sign(user, %{})
+            {:ok, access_token, _claims} = guardian().encode_and_sign(user, %{})
+            {:ok, refresh_token, _claims} = guardian().encode_and_sign(user, %{})
 
             {:ok,
              %{
