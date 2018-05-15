@@ -30,6 +30,6 @@ defmodule HibouWeb.Router do
   scope "/v1", HibouWeb do
     pipe_through(:api)
 
-    post("/auth/tokens", AuthorizationController, :create)
+    post("/auth/tokens", TokenController, :create)
   end
 end

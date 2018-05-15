@@ -51,12 +51,12 @@ config :hibou, Hibou.Guardian,
   issuer: "hibou",
   secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"
 
+config :hibou, repo: Hibou.Repo
+
 # Configure your database
 config :hibou, Hibou.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
   database: "postgres",
   hostname: "localhost",
-  port: 35432,
   pool_size: 10

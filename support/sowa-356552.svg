@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.0//EN'  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="11.695mm" height="14.654mm" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.0" viewBox="0 0 94 118" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil6 {fill:#2B2A29}
+    .fil4 {fill:#AE4A84}
+    .fil2 {fill:#E5097F}
+    .fil8 {fill:#EF7F1A}
+    .fil3 {fill:#F5B2B6}
+    .fil5 {fill:#FFED00}
+    .fil1 {fill:#E15B9C}
+    .fil0 {fill:#EB85B4}
+    .fil7 {fill:#FEFEFE;fill-opacity:0.180392}
+   ]]>
+  </style>
+ </defs>
+   <path class="fil0" d="m81 51c-4-1-6 1-6 6-1 4 0 11 1 17 2 6 5 13 7 13 3 0 7-7 9-12 2-6 3-10 1-15-2-4-8-8-12-9z"/>
+   <path class="fil0" d="m13 53c4-1 6 1 7 5 0 5 0 11-2 18-2 6-4 12-7 12s-6-6-9-12c-2-5-3-10-1-14s8-9 12-9z"/>
+   <path class="fil1" d="m18 29c-3-3-7-7-7-12-1-5 1-11 4-17 4 2 8 4 11 8 3 3 5 8 5 13s-2 10-4 11c-3 1-6 0-9-3z"/>
+   <path class="fil1" d="m74 29c3-3 7-7 8-12 0-5-2-11-5-17-3 2-7 4-10 8-3 3-6 8-6 13s2 10 5 11c2 1 5 0 8-3z"/>
+   <path class="fil2" d="m47 7c64 0 28 104 0 104-25 0-69-104 0-104z"/>
+   <path class="fil1" d="m47 7c32 0 39 27 34 53h-69c-6-26 0-53 35-53z"/>
+   <ellipse class="fil3" cx="34" cy="34" rx="20" ry="17"/>
+   <ellipse class="fil3" cx="57" cy="34" rx="20" ry="17"/>
+    <path class="fil4" d="m41 42c-1-7-8-17-13-18-5 0-8 1-10 1 7-8 31-6 23 17z"/>
+    <path class="fil4" d="m30 21c7 0 12 5 12 12 0 6-5 11-12 11-6 0-11-5-11-11 0-7 5-12 11-12z"/>
+    <circle class="fil5" cx="30" cy="33" r="11"/>
+    <circle class="fil6" cx="30" cy="33" r="9"/>
+    <path class="fil7" d="m30 24c5 0 9 3 9 8-2-2-4-3-7-3-4-1-7 0-10 1 1-4 5-6 8-6z"/>
+    <path class="fil4" d="m50 42c1-7 8-17 13-17 5-1 8 0 10 1-8-9-31-6-23 16z"/>
+    <path class="fil4" d="m60 21c-6 0-11 6-11 12 0 7 5 12 11 12 7 0 12-5 12-12 0-6-5-12-12-12z"/>
+    <circle class="fil5" cx="60" cy="33" r="11"/>
+    <circle class="fil6" cx="60" cy="33" r="9"/>
+    <path class="fil7" d="m60 24c-4 0-8 4-8 8 2-1 4-2 7-3 4 0 7 0 10 1-1-3-5-6-9-6z"/>
+   <path class="fil8" d="m39 46c2 5 4 11 6 11s4-6 6-12c-2 0-4-1-6-1s-4 1-6 2z"/>
+    <ellipse class="fil2" transform="matrix(-.040029 .0041028 .0033968 .033141 54.979 107)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(-.027527 .017064 .019064 .024274 59.199 111.68)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(.030869 .010171 -.012648 .028018 52.257 112.38)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(-.033128 .0033954 -.003042 -.029679 55.794 112.78)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(.040029 .0041028 -.0033968 .033141 39.919 107.18)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(.027527 .017064 -.019064 .024274 35.699 111.86)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(-.030869 .010171 .012648 .028018 42.641 112.56)" rx="68" ry="167"/>
+    <ellipse class="fil2" transform="matrix(.033128 .0033954 .003042 -.029679 39.104 112.96)" rx="68" ry="167"/>
+    <path class="fil1" d="m12 60c1 2 2 3 3 3s2-2 2-4c-1-1-3-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m16 60c1 2 2 3 3 3s3-2 2-4c0-1-2-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m21 60c0 2 1 3 2 3 2 0 3-2 2-4 0-1-2-2-3-1-2 0-2 1-1 2z"/>
+    <path class="fil1" d="m25 60c0 2 1 3 3 3 1 0 2-2 2-4-1-1-3-2-4-1-1 0-2 1-1 2z"/>
+    <path class="fil1" d="m29 60c1 2 2 3 3 3s2-2 2-4c0-1-3-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m33 60c1 2 2 3 3 3s3-2 2-4c0-1-2-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m38 60c0 2 1 3 3 3 1 0 2-2 2-4-1-1-3-2-4-1-1 0-2 1-1 2z"/>
+    <path class="fil1" d="m46 60c1 2 2 3 3 3s3-2 2-4c0-1-2-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m42 60c0 2 2 3 3 3s2-2 2-4c-1-1-3-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m51 60c0 2 1 3 2 3 2 0 3-2 2-4 0-1-2-2-3-1-2 0-2 1-1 2z"/>
+    <path class="fil1" d="m55 60c0 2 1 3 3 3 1 0 2-2 2-4-1-1-3-2-4-1-1 0-2 1-1 2z"/>
+    <path class="fil1" d="m59 60c1 2 2 3 3 3s2-2 2-4c0-1-3-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m63 60c1 2 2 3 3 3s3-2 2-4c0-1-2-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m68 60c0 2 1 3 3 3 1 0 2-2 2-4-1-1-3-2-4-1-1 0-2 1-1 2z"/>
+    <path class="fil1" d="m72 60c0 2 2 3 3 3s2-2 2-4c-1-1-3-2-4-1-1 0-1 1-1 2z"/>
+    <path class="fil1" d="m76 60c1 2 2 3 3 3s3-2 2-4c0-1-2-2-4-1-1 0-1 1-1 2z"/>
+</svg>
