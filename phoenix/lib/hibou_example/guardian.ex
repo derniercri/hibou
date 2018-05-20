@@ -1,5 +1,5 @@
 defmodule HibouExample.Guardian do
-  use Guardian, otp_app: :hibou
+  use Guardian, otp_app: :hibou_example
   alias Hibou.Storage
 
   def subject_for_token(resource, _claims) do

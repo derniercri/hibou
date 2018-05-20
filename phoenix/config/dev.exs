@@ -57,3 +57,7 @@ config :hibou_example, HibouExample.Repo,
   database: "postgres",
   hostname: "localhost",
   pool_size: 10
+
+config :hibou_example, HibouExample.Guardian,
+  issuer: "hibou_example",
+  secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"

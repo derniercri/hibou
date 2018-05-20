@@ -1,5 +1,5 @@
-defmodule HibouWeb.AuthorizationControllerTest do
-  use HibouWeb.ConnCase
+defmodule HibouExampleWeb.AuthorizationControllerTest do
+  use HibouExampleWeb.ConnCase
 
   alias Hibou.Model.User
 
@@ -13,7 +13,7 @@ defmodule HibouWeb.AuthorizationControllerTest do
   end
 
   test "authorize when user is connected", %{conn: conn} do
-    conn = Hibou.Guardian.Plug.sign_in(conn, %User{id: 1})
+    conn = HibouExample.Guardian.Plug.sign_in(conn, %User{id: 1})
 
     conn = get(conn, "/authorize?response_type=code&redirect_uri=http://localhost&client_id=1")
 

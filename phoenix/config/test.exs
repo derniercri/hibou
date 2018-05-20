@@ -17,3 +17,7 @@ config :hibou_example, HibouExample.Repo,
   database: "hibou_example_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :hibou_example, HibouExample.Guardian,
+  issuer: "hibou_example",
+  secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"

@@ -10,7 +10,7 @@ defmodule HibouExampleWeb.AuthorizationController do
         %{"client_id" => client_id, "response_type" => "code", "redirect_uri" => redirect_uri} =
           _params
       ) do
-    case Hibou.Guardian.Plug.current_resource(conn) do
+    case HibouExample.Guardian.Plug.current_resource(conn) do
       nil ->
         conn
         |> Plug.Conn.put_session(:redirect_url, "#{conn.request_path}?#{conn.query_string}")
@@ -32,7 +32,7 @@ defmodule HibouExampleWeb.AuthorizationController do
   end
 
   def create(conn, _params) do
-    case Hibou.Guardian.Plug.current_resource(conn) do
+    case HibouExample.Guardian.Plug.current_resource(conn) do
       user ->
         client_id = get_session(conn, :client_id)
         redirect_uri = get_session(conn, :redirect_uri)
