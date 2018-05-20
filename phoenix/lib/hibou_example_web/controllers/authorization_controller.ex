@@ -1,5 +1,5 @@
-defmodule HibouWeb.AuthorizationController do
-  use HibouWeb, :controller
+defmodule HibouExampleWeb.AuthorizationController do
+  use HibouExampleWeb, :controller
   alias Hibou.Model.User
   alias Hibou.Repo
   alias Hibou.Model.Authorization

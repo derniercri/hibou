@@ -1,3 +1,3 @@
-defmodule HibouWeb.AuthorizationView do
-  use HibouWeb, :view
+defmodule HibouExampleWeb.AuthorizationView do
+  use HibouExampleWeb, :view
 end

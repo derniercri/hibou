@@ -54,6 +54,6 @@ config :hibou_example, HibouExample.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "hibou_example_dev",
+  database: "postgres",
   hostname: "localhost",
   pool_size: 10

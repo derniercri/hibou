@@ -1,3 +1,3 @@
-defmodule HibouWeb.RegistrationView do
-  use HibouWeb, :view
+defmodule HibouExampleWeb.RegistrationView do
+  use HibouExampleWeb, :view
 end

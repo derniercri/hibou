@@ -1,5 +1,5 @@
-defmodule HibouWeb.SessionController do
-  use HibouWeb, :controller
+defmodule HibouExampleWeb.SessionController do
+  use HibouExampleWeb, :controller
   alias Hibou.Model.User
   alias Hibou.Storage
 

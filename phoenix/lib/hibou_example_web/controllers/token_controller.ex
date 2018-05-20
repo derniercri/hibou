@@ -1,5 +1,5 @@
-defmodule HibouWeb.TokenController do
-  use HibouWeb, :controller
+defmodule HibouExampleWeb.TokenController do
+  use HibouExampleWeb, :controller
 
   alias Hibou.OAuth2
 
