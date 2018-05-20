@@ -28,7 +28,7 @@ defmodule HibouExampleWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/v1", HibouWeb do
+  scope "/v1", HibouExampleWeb do
     pipe_through(:api)
 
     post("/auth/tokens", TokenController, :create)
