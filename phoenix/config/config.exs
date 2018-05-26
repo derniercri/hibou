@@ -24,9 +24,9 @@ config :hibou,
   repo: HibouExample.Repo,
   guardian: HibouExample.Guardian
 
-config :hibou, Hibou.AuthAccessPipeline,
-  module: Hibou.Guardian,
-  error_handler: Hibou.AuthErrorHandler
+config :hibou_example, HibouExample.AuthAccessPipeline,
+  module: HibouExample.Guardian,
+  error_handler: HibouExample.AuthErrorHandler
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

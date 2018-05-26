@@ -38,9 +38,9 @@ http://localhost:4000/authorize?scope=read,write&client_id=1&redirect_uri=http:/
 __config.exs__
 
 ```elixir
-config :hibou, Hibou.AuthAccessPipeline,
-  module: Hibou.Guardian,
-  error_handler: Hibou.AuthErrorHandler
+config :hibou_example, HibouExample.AuthAccessPipeline,
+  module: HibouExample.Guardian,
+  error_handler: HibouExample.AuthErrorHandler
 ```
 
 __router.ex__
@@ -51,12 +51,12 @@ defmodule HibouWeb.Router do
 
   pipeline :browser do
     ...
-    plug(Hibou.AuthAccessPipeline)
+    plug(HibouExample.AuthAccessPipeline)
   end
 
   ...
 
-  scope "/", HibouWeb do
+  scope "/", HibouExampleWeb do
     # Use the default browser stack
     pipe_through(:browser)
 
@@ -69,7 +69,7 @@ defmodule HibouWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/v1", HibouWeb do
+  scope "/v1", HibouExampleWeb do
     pipe_through(:api)
 
     post("/auth/tokens", AuthorizationController, :create)
