@@ -41,6 +41,7 @@ defmodule Hibou.Mixfile do
       {:guardian, "~> 1.0"},
       {:bamboo, "~> 0.8.0"},
       {:bcrypt_elixir, "~> 1.0"},
+      {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
       {:comeonin, "~> 4.0"},
       {:misc_random, "~> 0.2.6"}
     ]
