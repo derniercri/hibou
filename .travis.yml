@@ -9,7 +9,7 @@ services:
 - postgresql
 
 elixir:
-- 1.6.1
+- 1.6.0
 otp_release:
 - 20.2
 before_script:
