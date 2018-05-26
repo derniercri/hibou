@@ -1,7 +1,6 @@
-defmodule HibouExampleWeb.SessionController do
-  use HibouExampleWeb, :controller
+defmodule MyAppWeb.SessionController do
+  use MyAppWeb, :controller
   alias Hibou.Model.User
-  alias Hibou.StorageEcto, as: Storage
 
   def new(conn, _params) do
     render(conn, "new.html")
@@ -19,11 +18,11 @@ defmodule HibouExampleWeb.SessionController do
       user ->
         case user.enabled do
           true ->
-            conn = HibouExample.Guardian.Plug.sign_in(conn, user)
+            conn = MyApp.Guardian.Plug.sign_in(conn, user)
             path = get_session(conn, :redirect_url) || "/"
 
             conn
-            |> HibouExample.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
+            |> MyApp.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
             |> redirect(to: path)
 
           false ->
@@ -36,12 +35,12 @@ defmodule HibouExampleWeb.SessionController do
 
   def sign_out(conn, _params) do
     conn
-    |> HibouExample.Guardian.Plug.sign_out()
+    |> MyApp.Guardian.Plug.sign_out()
     |> redirect(to: "/login")
   end
 
   defp get_user(email, password) do
-    case Storage.get_user_by_username(email) do
+    case OAuth2.storage().get_user_by_username(email) do
       nil ->
         nil
 

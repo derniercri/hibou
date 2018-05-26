@@ -1,11 +1,11 @@
-defmodule HibouExampleWeb.AuthorizationController do
-  use HibouExampleWeb, :controller
+defmodule MyAppWeb.AuthorizationController do
+  use MyAppWeb, :controller
   alias Hibou.Model.User
   alias Hibou.Model.Authorization
-  alias Hibou.StorageEcto, as: Storage
-  alias HibouExample.Repo
+  alias Hibou.OAuth2
+  alias MyApp.Repo
 
-  import HibouExample.Guardian.Plug
+  import MyApp.Guardian.Plug
 
   def new(
         conn,
@@ -21,7 +21,7 @@ defmodule HibouExampleWeb.AuthorizationController do
         |> redirect(to: "/login")
 
       _user ->
-        case Storage.get_client_by_id(client_id) do
+        case OAuth2.storage().get_client_by_id(client_id) do
           nil ->
             ""
 
@@ -40,7 +40,7 @@ defmodule HibouExampleWeb.AuthorizationController do
   end
 
   def create(conn, _params) do
-    case HibouExample.Guardian.Plug.current_resource(conn) do
+    case MyApp.Guardian.Plug.current_resource(conn) do
       user ->
         client_id = conn |> get_session(:client_id)
         redirect_uri = conn |> get_session(:redirect_uri)

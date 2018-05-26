@@ -1,4 +1,4 @@
-defmodule HibouExample.Application do
+defmodule MyApp.Application do
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -9,23 +9,23 @@ defmodule HibouExample.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(HibouExample.Repo, []),
+      supervisor(MyApp.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(HibouExampleWeb.Endpoint, []),
-      # Start your own worker by calling: HibouExample.Worker.start_link(arg1, arg2, arg3)
-      # worker(HibouExample.Worker, [arg1, arg2, arg3]),
+      supervisor(MyAppWeb.Endpoint, [])
+      # Start your own worker by calling: MyApp.Worker.start_link(arg1, arg2, arg3)
+      # worker(MyApp.Worker, [arg1, arg2, arg3]),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: HibouExample.Supervisor]
+    opts = [strategy: :one_for_one, name: MyApp.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    HibouExampleWeb.Endpoint.config_change(changed, removed)
+    MyAppWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

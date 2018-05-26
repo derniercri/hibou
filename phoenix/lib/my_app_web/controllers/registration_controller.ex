@@ -1,5 +1,5 @@
-defmodule HibouExampleWeb.RegistrationController do
-  use HibouExampleWeb, :controller
+defmodule MyAppWeb.RegistrationController do
+  use MyAppWeb, :controller
   alias Hibou.Model.User
   alias Hibou.Repo
 

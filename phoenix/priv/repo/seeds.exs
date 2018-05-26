@@ -1,6 +1,6 @@
 alias Hibou.Model.{User, Client, Authorization}
 alias Comeonin.Bcrypt
-alias HibouExample.Repo
+alias MyApp.Repo
 
 user_1 =
   Repo.insert!(%User{

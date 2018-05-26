@@ -1,4 +1,4 @@
-# HibouExample
+# MyApp
 
 To start your Phoenix server:
 

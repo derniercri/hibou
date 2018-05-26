@@ -40,12 +40,13 @@ __config.exs__
 ```elixir
 
 config :hibou,
-  repo: HibouExample.Repo,
-  guardian: HibouExample.Guardian
+  repo: MyApp.Repo,
+  guardian: MyApp.Guardian,
+  storage: Hibou.StorageEcto
   
-config :hibou_example, HibouExample.AuthAccessPipeline,
-  module: HibouExample.Guardian,
-  error_handler: HibouExample.AuthErrorHandler
+config :my_app, MyApp.AuthAccessPipeline,
+  module: MyApp.Guardian,
+  error_handler: MyApp.AuthErrorHandler
 ```
 
 __router.ex__
@@ -56,12 +57,12 @@ defmodule HibouWeb.Router do
 
   pipeline :browser do
     ...
-    plug(HibouExample.AuthAccessPipeline)
+    plug(MyApp.AuthAccessPipeline)
   end
 
   ...
 
-  scope "/", HibouExampleWeb do
+  scope "/", MyAppWeb do
     # Use the default browser stack
     pipe_through(:browser)
 
@@ -74,7 +75,7 @@ defmodule HibouWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/v1", HibouExampleWeb do
+  scope "/v1", MyAppWeb do
     pipe_through(:api)
 
     post("/auth/tokens", AuthorizationController, :create)

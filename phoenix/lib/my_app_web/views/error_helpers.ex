@@ -1,4 +1,4 @@
-defmodule HibouExampleWeb.ErrorHelpers do
+defmodule MyAppWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -9,8 +9,8 @@ defmodule HibouExampleWeb.ErrorHelpers do
   Generates tag for inlined form input errors.
   """
   def error_tag(form, field) do
-    Enum.map(Keyword.get_values(form.errors, field), fn (error) ->
-      content_tag :span, translate_error(error), class: "help-block"
+    Enum.map(Keyword.get_values(form.errors, field), fn error ->
+      content_tag(:span, translate_error(error), class: "help-block")
     end)
   end
 
@@ -36,9 +36,9 @@ defmodule HibouExampleWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(HibouExampleWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(MyAppWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(HibouExampleWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(MyAppWeb.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,6 +1,6 @@
-defmodule HibouExample do
+defmodule MyApp do
   @moduledoc """
-  HibouExample keeps the contexts that define your domain
+  MyApp keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

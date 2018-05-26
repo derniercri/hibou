@@ -1,4 +1,4 @@
-defmodule HibouExample.Repo.Migrations.CreateAuthoriations do
+defmodule MyApp.Repo.Migrations.CreateAuthoriations do
   use Ecto.Migration
 
   def change do

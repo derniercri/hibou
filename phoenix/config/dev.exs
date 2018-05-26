@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :hibou_example, HibouExampleWeb.Endpoint,
+config :my_app, MyAppWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -30,13 +30,13 @@ config :hibou_example, HibouExampleWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :hibou_example, HibouExampleWeb.Endpoint,
+config :my_app, MyAppWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/hibou_example_web/views/.*(ex)$},
-      ~r{lib/hibou_example_web/templates/.*(eex)$}
+      ~r{lib/my_app_web/views/.*(ex)$},
+      ~r{lib/my_app_web/templates/.*(eex)$}
     ]
   ]
 
@@ -47,10 +47,10 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-config :hibou, repo: HibouExample.Repo
+config :hibou, repo: MyApp.Repo
 
 # Configure your database
-config :hibou_example, HibouExample.Repo,
+config :my_app, MyApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
@@ -58,6 +58,6 @@ config :hibou_example, HibouExample.Repo,
   hostname: "localhost",
   pool_size: 10
 
-config :hibou_example, HibouExample.Guardian,
-  issuer: "hibou_example",
+config :my_app, MyApp.Guardian,
+  issuer: "my_app",
   secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"

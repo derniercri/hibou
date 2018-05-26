@@ -1,3 +1,3 @@
-defmodule HibouExampleWeb.LayoutViewTest do
-  use HibouExampleWeb.ConnCase, async: true
+defmodule MyAppWeb.LayoutViewTest do
+  use MyAppWeb.ConnCase, async: true
 end

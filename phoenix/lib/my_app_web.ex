@@ -1,12 +1,12 @@
-defmodule HibouExampleWeb do
+defmodule MyAppWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use HibouExampleWeb, :controller
-      use HibouExampleWeb, :view
+      use MyAppWeb, :controller
+      use MyAppWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,18 @@ defmodule HibouExampleWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: HibouExampleWeb
+      use Phoenix.Controller, namespace: MyAppWeb
       import Plug.Conn
-      import HibouExampleWeb.Router.Helpers
-      import HibouExampleWeb.Gettext
+      import MyAppWeb.Router.Helpers
+      import MyAppWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/hibou_example_web/templates",
-                        namespace: HibouExampleWeb
+      use Phoenix.View,
+        root: "lib/my_app_web/templates",
+        namespace: MyAppWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +38,9 @@ defmodule HibouExampleWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import HibouExampleWeb.Router.Helpers
-      import HibouExampleWeb.ErrorHelpers
-      import HibouExampleWeb.Gettext
+      import MyAppWeb.Router.Helpers
+      import MyAppWeb.ErrorHelpers
+      import MyAppWeb.Gettext
     end
   end
 
@@ -54,7 +55,7 @@ defmodule HibouExampleWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import HibouExampleWeb.Gettext
+      import MyAppWeb.Gettext
     end
   end
 

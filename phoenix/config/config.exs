@@ -6,14 +6,14 @@
 use Mix.Config
 
 # General application configuration
-config :hibou_example, ecto_repos: [HibouExample.Repo]
+config :my_app, ecto_repos: [MyApp.Repo]
 
 # Configures the endpoint
-config :hibou_example, HibouExampleWeb.Endpoint,
+config :my_app, MyAppWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "21c0KO6/X6V4LdxYQ664Ii9PDLE+NsG9R+Mv5DjgOfbGbxRT7+RVgsa6KgxuDGo7",
-  render_errors: [view: HibouExampleWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: HibouExample.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: MyAppWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: MyApp.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -21,12 +21,13 @@ config :logger, :console,
   metadata: [:user_id]
 
 config :hibou,
-  repo: HibouExample.Repo,
-  guardian: HibouExample.Guardian
+  repo: MyApp.Repo,
+  guardian: MyApp.Guardian,
+  storage: Hibou.StorageEcto
 
-config :hibou_example, HibouExample.AuthAccessPipeline,
-  module: HibouExample.Guardian,
-  error_handler: HibouExample.AuthErrorHandler
+config :my_app, MyApp.AuthAccessPipeline,
+  module: MyApp.Guardian,
+  error_handler: MyApp.AuthErrorHandler
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
