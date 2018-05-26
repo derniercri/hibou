@@ -18,8 +18,9 @@ before_script:
 - wget -O $PLT_LOCATION https://raw.github.com/danielberkompas/travis_elixir_plts/master/$PLT_FILENAME
 script:
 - mix deps.get
+- mix dialyzer --halt-exit-status --no_check_plt --plt $PLT_LOCATION --no_native _build/test/lib/hibou/ebin
+- cd  phoenix && mix do deps.get, ecto.reset, run priv/repo/seeds.exs, test
 #- mix ecto.create
 #- mix ecto.migrate
 #- mix run priv/repo/seeds.exs
-- mix dialyzer --halt-exit-status --no_check_plt --plt $PLT_LOCATION --no_native _build/test/lib/hibou/ebin
-- mix test
+#- mix test
