@@ -24,6 +24,10 @@ config :hibou,
   repo: HibouExample.Repo,
   guardian: HibouExample.Guardian
 
+config :hibou, Hibou.AuthAccessPipeline,
+  module: Hibou.Guardian,
+  error_handler: Hibou.AuthErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

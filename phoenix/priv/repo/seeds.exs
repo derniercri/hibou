@@ -1,14 +1,3 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Hibou.Repo.insert!(%Hibou.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
 alias Hibou.Model.{User, Client, Authorization}
 alias Comeonin.Bcrypt
 alias HibouExample.Repo

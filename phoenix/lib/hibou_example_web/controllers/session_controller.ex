@@ -19,11 +19,11 @@ defmodule HibouExampleWeb.SessionController do
       user ->
         case user.enabled do
           true ->
-            conn = Hibou.Guardian.Plug.sign_in(conn, user)
+            conn = HibouExample.Guardian.Plug.sign_in(conn, user)
             path = get_session(conn, :redirect_url) || "/"
 
             conn
-            |> Hibou.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
+            |> HibouExample.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
             |> redirect(to: path)
 
           false ->
@@ -36,7 +36,7 @@ defmodule HibouExampleWeb.SessionController do
 
   def sign_out(conn, _params) do
     conn
-    |> Hibou.Guardian.Plug.sign_out()
+    |> HibouExample.Guardian.Plug.sign_out()
     |> redirect(to: "/login")
   end
 
