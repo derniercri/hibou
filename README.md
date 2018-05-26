@@ -38,6 +38,11 @@ http://localhost:4000/authorize?scope=read,write&client_id=1&redirect_uri=http:/
 __config.exs__
 
 ```elixir
+
+config :hibou,
+  repo: HibouExample.Repo,
+  guardian: HibouExample.Guardian
+  
 config :hibou_example, HibouExample.AuthAccessPipeline,
   module: HibouExample.Guardian,
   error_handler: HibouExample.AuthErrorHandler
