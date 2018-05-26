@@ -1,6 +1,6 @@
 defmodule Hibou.OAuth2 do
   alias Hibou.Model.User
-  alias Hibou.Storage
+  alias Hibou.StorageEcto
 
   import Hibou.Config
 

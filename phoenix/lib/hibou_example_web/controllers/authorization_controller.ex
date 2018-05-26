@@ -2,7 +2,7 @@ defmodule HibouExampleWeb.AuthorizationController do
   use HibouExampleWeb, :controller
   alias Hibou.Model.User
   alias Hibou.Model.Authorization
-  alias Hibou.Storage
+  alias Hibou.StorageEcto, as: Storage
   alias HibouExample.Repo
 
   import HibouExample.Guardian.Plug

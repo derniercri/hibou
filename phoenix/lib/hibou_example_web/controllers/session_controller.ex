@@ -1,7 +1,7 @@
 defmodule HibouExampleWeb.SessionController do
   use HibouExampleWeb, :controller
   alias Hibou.Model.User
-  alias Hibou.Storage
+  alias Hibou.StorageEcto, as: Storage
 
   def new(conn, _params) do
     render(conn, "new.html")
