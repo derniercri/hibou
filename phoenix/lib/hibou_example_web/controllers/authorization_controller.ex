@@ -10,8 +10,10 @@ defmodule HibouExampleWeb.AuthorizationController do
   def new(
         conn,
         %{"client_id" => client_id, "response_type" => "code", "redirect_uri" => redirect_uri} =
-          _params
+          params
       ) do
+    # TODO: validate redirect uri
+
     case current_resource(conn) do
       nil ->
         conn
@@ -24,9 +26,13 @@ defmodule HibouExampleWeb.AuthorizationController do
             ""
 
           client ->
-            conn
-            |> Plug.Conn.put_session(:client_id, client_id)
-            |> Plug.Conn.put_session(:redirect_uri, redirect_uri)
+            state = params["state"]
+
+            conn =
+              conn
+              |> Plug.Conn.put_session(:client_id, client.id)
+              |> Plug.Conn.put_session(:redirect_uri, redirect_uri)
+              |> Plug.Conn.put_session(:state, state)
 
             render(conn, "new.html", client: client, changeset: User.changeset(%User{}, %{}))
         end
@@ -36,8 +42,9 @@ defmodule HibouExampleWeb.AuthorizationController do
   def create(conn, _params) do
     case HibouExample.Guardian.Plug.current_resource(conn) do
       user ->
-        client_id = get_session(conn, :client_id)
-        redirect_uri = get_session(conn, :redirect_uri)
+        client_id = conn |> get_session(:client_id)
+        redirect_uri = conn |> get_session(:redirect_uri)
+        state = conn |> get_session(:state)
         code = Misc.Random.string(12)
 
         changeset =
@@ -49,6 +56,7 @@ defmodule HibouExampleWeb.AuthorizationController do
 
         case Repo.insert(changeset) do
           {:ok, _changeset} ->
+            redirect_uri = "#{redirect_uri}?code=#{code}&state=#{state}"
             redirect(conn, external: redirect_uri)
         end
     end
