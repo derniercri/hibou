@@ -2,7 +2,7 @@
 
 <p><%= @client.name %> wants to access your data.</p>
 
-<form action="/authorize" method="POST">
+<%= form_for @changeset, "/authorize", fn f -> %>
     <input type="submit" value="Don't authorize" />
     <input type="submit" value="Authorize" />
-</form>
+<% end %>
