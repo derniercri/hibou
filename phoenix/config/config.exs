@@ -23,7 +23,10 @@ config :logger, :console,
 config :hibou,
   repo: MyApp.Repo,
   guardian: MyApp.Guardian,
-  storage: Hibou.StorageEcto
+  storage: Hibou.StorageEcto,
+  user_model: Hibou.Model.User,
+  client_model: Hibou.Model.Client,
+  authorization_model: Hibou.Model.Authorization
 
 config :my_app, MyApp.AuthAccessPipeline,
   module: MyApp.Guardian,

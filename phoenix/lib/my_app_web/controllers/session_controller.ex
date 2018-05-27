@@ -1,6 +1,7 @@
 defmodule MyAppWeb.SessionController do
   use MyAppWeb, :controller
   alias Hibou.Model.User
+  alias MyApp.Guardian
 
   def new(conn, _params) do
     render(conn, "new.html")
@@ -18,11 +19,11 @@ defmodule MyAppWeb.SessionController do
       user ->
         case user.enabled do
           true ->
-            conn = MyApp.Guardian.Plug.sign_in(conn, user)
+            conn = Guardian.Plug.sign_in(conn, user)
             path = get_session(conn, :redirect_url) || "/"
 
             conn
-            |> MyApp.Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
+            |> Guardian.Plug.sign_in(user, %{"sub" => "#{user.id}"})
             |> redirect(to: path)
 
           false ->
@@ -35,7 +36,7 @@ defmodule MyAppWeb.SessionController do
 
   def sign_out(conn, _params) do
     conn
-    |> MyApp.Guardian.Plug.sign_out()
+    |> Guardian.Plug.sign_out()
     |> redirect(to: "/login")
   end
 
