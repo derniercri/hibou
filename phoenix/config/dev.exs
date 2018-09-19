@@ -57,7 +57,3 @@ config :my_app, MyApp.Repo,
   database: "postgres",
   hostname: "localhost",
   pool_size: 10
-
-config :my_app, MyApp.Guardian,
-  issuer: "my_app",
-  secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"

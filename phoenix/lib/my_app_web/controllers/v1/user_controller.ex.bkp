@@ -1,0 +1,93 @@
+defmodule MyAppWeb.V1.UserController do
+  use MimiWeb, :controller
+  # alias Bamboo.Email
+
+  alias Mimi.Auth.User
+  alias Mimi.Auth.ActivationCode
+
+  # alias Mimi.Repo
+  # alias MimiWeb.Utils
+  # alias Mimi.Guardian
+  # alias Mimi.Auth.Auth
+  # alias Mimi.Mailer
+  # import MimiWeb.Utils
+
+  def create(conn, params) do
+    params = Map.put_new(params, "password_hash", User.hashed_password(params["password"]))
+    changeset = User.changeset(%User{}, params)
+
+    case Repo.insert(changeset) do
+      {:ok, user} ->
+        case Repo.insert(
+               ActivationCode.changeset(%ActivationCode{}, %{
+                 "code" => random_string(15),
+                 "user_id" => user.id
+               })
+             ) do
+          {:ok, code} ->
+            activation_url = "#{MimiWeb.Endpoint.url()}/v1/users/activate/#{code.code}"
+
+            Email.new_email(
+              to: user.email,
+              from: "laibulle@gmail.com",
+              subject: "Welcome to Mimi #{user.username}",
+              html_body:
+                "Welcome, <p>before using the app, you must <strong><a href='#{activation_url}'>activate</a></strong> your account.</p>",
+              text_body: "Thanks for joining!"
+            )
+            |> Mailer.deliver_now()
+
+            conn |> put_status(:created) |> render("show.json", user: user)
+
+          {:error, changeset} ->
+            json(conn |> put_status(:bad_request), %{
+              errors: changeset |> Utils.changeset_errors_struct()
+            })
+        end
+
+      {:error, changeset} ->
+        json(conn |> put_status(:bad_request), %{
+          errors: changeset |> Utils.changeset_errors_struct()
+        })
+    end
+  end
+
+  def activate(conn, %{"code" => code_value}) do
+    case Auth.get_code(code_value) do
+      nil ->
+        json(conn |> put_status(:not_found), %{message: "activation code not found"})
+
+      code ->
+        # TODO: render a beautifull page
+        case Auth.get_user(code.user_id) do
+          nil ->
+            json(conn |> put_status(:not_found), %{message: "resource not found"})
+
+          user ->
+            Repo.transaction(fn ->
+              Repo.delete!(code)
+              User.changeset(user, %{enabled: true}) |> Repo.update!()
+            end)
+
+            conn |> render("show.json", user: user)
+        end
+    end
+  end
+
+  def show(conn, %{"id" => id}) do
+    case Auth.get_user(id) do
+      nil -> json(conn |> put_status(:not_found), %{message: "resource not found"})
+      user -> conn |> render("show.json", user: user)
+    end
+  end
+
+  def put_resp_headers(conn, []) do
+    conn
+  end
+
+  def put_resp_headers(conn, [h | t]) do
+    {k, v} = h
+    conn |> put_resp_header(k, v)
+    put_resp_headers(conn, t)
+  end
+end

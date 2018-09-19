@@ -93,3 +93,13 @@ mix deps.get
 mix ecto.reset
 mix phx.server
 ```
+
+## Developer
+
+```bash
+rm -rf demo_app/
+elixir scripts.exs
+echo "Y" | mix phx.new demo_app --no-brunch
+elixir scripts.exs demo_app
+mix hibou.setup demo_app
+```

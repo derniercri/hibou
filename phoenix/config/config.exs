@@ -20,6 +20,7 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+# append_start %{after: "use Mix.Config", check_value: "config :hibou,"}
 config :hibou,
   repo: MyApp.Repo,
   guardian: MyApp.Guardian,
@@ -31,6 +32,12 @@ config :hibou,
 config :my_app, MyApp.AuthAccessPipeline,
   module: MyApp.Guardian,
   error_handler: MyApp.AuthErrorHandler
+
+config :my_app, MyApp.Guardian,
+  issuer: "my_app",
+  secret_key: "IiyscTs4H35aVOd9+9aMe4R35oqeZtSyb0cTWp6T3dGydcTmork9RXnXpgoyFQz7"
+
+# append_stop
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

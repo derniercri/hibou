@@ -18,9 +18,12 @@ before_script:
 - wget -O $PLT_LOCATION https://raw.github.com/danielberkompas/travis_elixir_plts/master/$PLT_FILENAME
 script:
 - mix deps.get
-- mix dialyzer --halt-exit-status --no_check_plt --plt $PLT_LOCATION --no_native _build/test/lib/hibou/ebin
-- cd  phoenix && mix do deps.get, ecto.reset, run priv/repo/seeds.exs, test
-#- mix ecto.create
-#- mix ecto.migrate
-#- mix run priv/repo/seeds.exs
-#- mix test
+- echo "Y" | mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+- echo "Y" | mix phx.new demo_app --no-brunch
+- elixir scripts.exs demo_app
+- mix hibou.setup demo_app
+- cd demo_app
+- mix deps.get
+- mix compile
+- mix ecto.setup
+- mix test

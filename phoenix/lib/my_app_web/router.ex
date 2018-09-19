@@ -1,6 +1,7 @@
 defmodule MyAppWeb.Router do
   use MyAppWeb, :router
 
+  # append_start %{after: ":router", check_value: "AuthorizationController"}
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
@@ -34,4 +35,6 @@ defmodule MyAppWeb.Router do
 
     post("/auth/tokens", TokenController, :create)
   end
+
+  # append_stop
 end
