@@ -7,6 +7,32 @@ defmodule Mix.Tasks.Hibou.Setup do
     run(["./"])
   end
 
+  @append_files [
+    "/lib/my_app_web/router.ex",
+    "/config/config.exs"
+  ]
+
+  @create_files [
+    "/lib/my_app/auth_access_pipeline.ex",
+    "/lib/my_app/guardian.ex",
+    "/lib/my_app_web/controllers/authorization_controller.ex",
+    "/lib/my_app_web/controllers/registration_controller.ex",
+    "/lib/my_app_web/controllers/session_controller.ex",
+    "/lib/my_app_web/controllers/token_controller.ex",
+    "/lib/my_app_web/templates/authorization/new.html.eex",
+    "/lib/my_app_web/templates/registration/new.html.eex",
+    "/lib/my_app_web/templates/registration/created.html.eex",
+    "/lib/my_app_web/templates/session/new.html.eex",
+    "/lib/my_app_web/views/authorization_view.ex",
+    "/lib/my_app_web/views/registration_view.ex",
+    "/lib/my_app_web/views/session_view.ex",
+    "/priv/repo/migrations/20180503022233_create_users.exs",
+    "/priv/repo/migrations/20180503062233_create_clients.exs",
+    "/priv/repo/migrations/20180503042233_create_activation_code.exs",
+    "/priv/repo/migrations/20180503092233_create_authorization.exs",
+    "/priv/repo/migrations/20180903052233_create_org.exs"
+  ]
+
   def run([path]) do
     IO.puts("🦉 configuring Hibou ...")
     info = find_info(path)
@@ -20,125 +46,8 @@ defmodule Mix.Tasks.Hibou.Setup do
         false -> "deps/hibou"
       end
 
-    append(
-      "#{base_dir}/phoenix/lib/my_app_web/router.ex",
-      "#{path}/lib/#{info.web_app_name}/router.ex",
-      info
-    )
-
-    append(
-      "#{base_dir}/phoenix/config/config.exs",
-      "#{path}/config/config.exs",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app/auth_access_pipeline.ex",
-      "#{path}/lib/#{info.app_name}/auth_access_pipeline.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app/guardian.ex",
-      "#{path}/lib/#{info.app_name}/guardian.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/controllers/authorization_controller.ex",
-      "#{path}/lib/#{info.web_app_name}/controllers/authorization_controller.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/controllers/registration_controller.ex",
-      "#{path}/lib/#{info.web_app_name}/controllers/registration_controller.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/controllers/session_controller.ex",
-      "#{path}/lib/#{info.web_app_name}/controllers/session_controller.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/controllers/token_controller.ex",
-      "#{path}/lib/#{info.web_app_name}/controllers/token_controller.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/templates/authorization/new.html.eex",
-      "#{path}/lib/#{info.web_app_name}/templates/authorization/new.html.eex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/templates/registration/new.html.eex",
-      "#{path}/lib/#{info.web_app_name}/templates/registration/new.html.eex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/templates/registration/created.html.eex",
-      "#{path}/lib/#{info.web_app_name}/templates/registration/created.html.eex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/templates/session/new.html.eex",
-      "#{path}/lib/#{info.web_app_name}/templates/session/new.html.eex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/views/authorization_view.ex",
-      "#{path}/lib/#{info.web_app_name}/views/authorization_view.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/views/registration_view.ex",
-      "#{path}/lib/#{info.web_app_name}/views/registration_view.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/lib/my_app_web/views/session_view.ex",
-      "#{path}/lib/#{info.web_app_name}/views/session_view.ex",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/priv/repo/migrations/20180503022233_create_users.exs",
-      "#{path}/priv/repo/migrations/20180503022233_create_users.exs",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/priv/repo/migrations/20180503062233_create_clients.exs",
-      "#{path}/priv/repo/migrations/20180503062233_create_clients.exs",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/priv/repo/migrations/20180503042233_create_activation_code.exs",
-      "#{path}/priv/repo/migrations/20180503042233_create_activation_code.exs",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/priv/repo/migrations/20180503092233_create_authorization.exs",
-      "#{path}/priv/repo/migrations/20180503092233_create_authorization.exs",
-      info
-    )
-
-    create_file(
-      "#{base_dir}/phoenix/priv/repo/migrations/20180903052233_create_org.exs",
-      "#{path}/priv/repo/migrations/20180903052233_create_org.exs",
-      info
-    )
+    append_all(base_dir, path, @append_files, info)
+    create_all(base_dir, path, @create_files, info)
 
     IO.puts("Done!")
   end
@@ -244,5 +153,40 @@ defmodule Mix.Tasks.Hibou.Setup do
 
   def parse_raw_segment([], segments, _info) do
     segments
+  end
+
+  def transform_filepath(filename, info) do
+    filename
+    |> String.replace("my_app_web", info.web_app_name)
+  end
+
+  def create_all(base_dir, path, files, info) do
+    src_base = "#{base_dir}/phoenix/"
+    dest_base = "#{path}"
+    create_all_process(files, src_base, dest_base, info)
+  end
+
+  def create_all_process([file | tail], src_base, dest_base, info) do
+    create_file("#{src_base}#{file}", "#{dest_base}#{file}" |> transform_filepath(info), info)
+    create_all_process(tail, src_base, dest_base, info)
+  end
+
+  def create_all_process([], _, _, _) do
+    nil
+  end
+
+  def append_all(base_dir, path, files, info) do
+    src_base = "#{base_dir}/phoenix/"
+    dest_base = "#{path}"
+    append_all_process(files, src_base, dest_base, info)
+  end
+
+  def append_all_process([file | tail], src_base, dest_base, info) do
+    append("#{src_base}#{file}", "#{dest_base}#{file}" |> transform_filepath(info), info)
+    append_all_process(tail, src_base, dest_base, info)
+  end
+
+  def append_all_process([], _, _, _) do
+    nil
   end
 end
